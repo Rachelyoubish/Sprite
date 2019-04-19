@@ -5,6 +5,7 @@
 template<typename T>
 class Vec2_ {
 public:
+	Vec2_() = default;
 	Vec2_(T x_in, T y_in)
 		:
 		x(x_in),
@@ -41,7 +42,7 @@ public:
 	}
 
 	T GetLength() const {
-		return std::sqrt(GetLengthSq());
+		return (T)std::sqrt(GetLengthSq());
 	}
 
 	T GetLengthSq() const {
@@ -54,8 +55,8 @@ public:
 
 	Vec2_ GetNormalized() const {
 		const T len = GetLength();
-		if (len != 0.0f) {
-			return *this * (1.0f / len);
+		if (len != (T)0) {
+			return *this * ((T)1 / len);
 		}
 		return *this;
 	}
